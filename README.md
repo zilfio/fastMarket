@@ -16,3 +16,27 @@ I dipendenti del supermercato, che possono usufruire totalmente o parzialmente d
   - Sales manager: dipendente incaricato nella gestione degli ordini (ovvero sia delle consegne a domicilio che delle prenotazioni), la gestione degli articoli e delle e-mail per assistenza tecnica e servizio clienti.
   - Web-marketing manager: dipendente incaricato di gestire le newsletter, le e-mail promozionali, le informazioni del sito e la sezione ricette.
 Il sistema dovrà, dunque, prevedere uno strumento di backoffice accessibile agli utenti autorizzati del supermarket e differenziato in base alla tipologia di ruolo svolto, ovvero: l’amministratore del sito, il responsabile vendite e il responsabile web-marketing.
+
+#Specifiche funzionali
+Di seguito presentiamo l’elenco delle funzionalità implementate nell’applicazione suddivise per attore:
+Gli utenti del sito:
+User:
+- Il sistema consentirà all’utente di effettuare la registrazione, inserendo tutte le informazioni personali, creando quindi un proprio profilo.
+- Il sistema permetterà la ricerca degli articoli del supermarket:
+  - per categoria (latte, detersivi o quant’altro);
+  - per tipologia d’intolleranza (celiachia, nefropatia o quant’altro);
+  - per marca (Barilla, Dixan o quant’altro);
+- Il sistema permetterà di visualizzare per ogni articolo le rispettive caratteristiche e descrizione.
+Registered user:
+- All’utente registrato, dopo aver effettuato l’autenticazione, sarà possibile modificare il proprio profilo dal sistema.
+Gli utenti amministratori del backoffice (i dipendenti):
+Sales manager:
+- L’utente con il ruolo di “Responsabile vendite” gestirà l’inserimento, la cancellazione e la modifica degli articoli del supermercato.
+Web-marketing manager:
+- L’utente con il ruolo “Responsabile vendite” sarà addetto alla gestione delle informazioni presenti all’interno del sito.
+Site admin:
+Oltre a fare tutto ciò che fanno gli altri utenti amministratori del backoffice:
+- L’utente con il ruolo di “Amministratore del sito” sarà incaricato di gestire i dipendenti del negozio (sarà l’unico in grado di aggiungere o eliminare i profili dei dipendenti).
+- Tale dipendente sarà anche incaricato di gestire gli utenti registrati e di avere accesso ai loro dati in caso di problemi con i pagamenti o le prenotazioni.
+Inoltre:
+- Ciascun dipendente sarà in grado di autenticarsi e modificare il proprio profilo dal sistema;
