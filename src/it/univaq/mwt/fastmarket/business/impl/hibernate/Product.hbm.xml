@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="it.univaq.mwt.fastmarket.business.model.Product" table="PRODUCTS">
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_PRODUCTS</param>
+			</generator>
+		</id>
+		<property access="field" lazy="false" name="name" type="java.lang.String">
+			<column name="NAME" not-null="true" unique="true" />
+		</property>
+		<property access="field" lazy="false" name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		<property access="field" lazy="false" name="price" type="float">
+			<column name="PRICE" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="stock" type="int">
+			<column name="STOCK" not-null="true" />
+		</property>
+		<many-to-one name="brand" class="it.univaq.mwt.fastmarket.business.model.Brand" access="field" fetch="join">
+			<column name="BRAND_ID" not-null="true" />
+		</many-to-one>
+		<many-to-one name="category" class="it.univaq.mwt.fastmarket.business.model.Category" access="field" fetch="join">
+			<column name="CATEGORY_ID" not-null="true" />
+		</many-to-one>
+		<property access="field" lazy="false" name="path" type="java.lang.String">
+			<column name="PATH" />
+		</property>
+		<joined-subclass name="it.univaq.mwt.fastmarket.business.model.Grocery" extends="it.univaq.mwt.fastmarket.business.model.Product" table="GROCERIES">
+			<key>
+				<column name="ID" not-null="true" />
+			</key>
+			<property access="field" lazy="false" name="expirationDate" type="date">
+				<column name="EXPIRATIONDATE" not-null="true" />
+			</property>
+			<property access="field" lazy="false" name="pricePerKg" type="float">
+				<column name="PRICEPERKG" />
+			</property>
+			<property access="field" lazy="false" name="pricePerLt" type="float">
+				<column name="PRICEPERLT" />
+			</property>
+			<many-to-one name="intoleranceCategory" class="it.univaq.mwt.fastmarket.business.model.IntoleranceCategory" fetch="join">
+				<column name="INTOLERANCECATEGORY_ID" />
+			</many-to-one>
+		</joined-subclass>
+		<joined-subclass name="it.univaq.mwt.fastmarket.business.model.NonGrocery" extends="it.univaq.mwt.fastmarket.business.model.Product" table="NONGROCERIES">
+			<key>
+				<column name="ID" not-null="true" />
+			</key>
+			<property access="field" lazy="false" name="scopeOfUse" type="java.lang.String">
+				<column name="SCOPEOFUSE" />
+			</property>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

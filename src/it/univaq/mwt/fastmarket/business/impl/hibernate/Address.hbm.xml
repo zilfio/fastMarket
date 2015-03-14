@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="it.univaq.mwt.fastmarket.business.model.Address" table="ADDRESSES">
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_ADDRESSES</param>
+			</generator>
+		</id>
+		<property access="field" lazy="false" name="street" type="java.lang.String">
+			<column name="STREET" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="streetNumber" type="int">
+			<column name="STREETNUMBER" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="country" type="java.lang.String">
+			<column name="COUNTRY" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="zipCode" type="int">
+			<column name="ZIPCODE" not-null="true" />
+		</property>
+		<many-to-one name="district" class="it.univaq.mwt.fastmarket.business.model.District" access="field" fetch="join">
+			<column name="DISTRICT_ID" not-null="true" />
+		</many-to-one>
+		<many-to-one name="user" class="it.univaq.mwt.fastmarket.business.model.User" access="field" fetch="join">
+			<column name="USER_ID" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

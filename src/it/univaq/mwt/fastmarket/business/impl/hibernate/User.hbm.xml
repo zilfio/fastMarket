@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="it.univaq.mwt.fastmarket.business.model.User" table="USERS">
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_USERS</param>
+			</generator>
+		</id>
+		<property access="field" lazy="false" name="username" type="java.lang.String">
+			<column name="USERNAME" not-null="true" unique="true" />
+		</property>
+		<property access="field" lazy="false" name="password" type="java.lang.String">
+			<column name="PASSWORD" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="firstName" type="java.lang.String">
+			<column name="FIRSTNAME" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="middleName" type="java.lang.String">
+			<column name="MIDDLENAME" />
+		</property>
+		<property access="field" lazy="false" name="lastName" type="java.lang.String">
+			<column name="LASTNAME" not-null="true" />
+		</property>
+		<property access="field" lazy="false" name="gender" type="char">
+			<column name="GENDER" />
+		</property>
+		<property access="field" lazy="false" name="mobilePhone" type="java.lang.String">
+            <column name="MOBILEPHONE" />
+        </property>
+        <property access="field" lazy="false" name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property access="field" lazy="false" name="email" type="java.lang.String">
+            <column name="EMAIL" not-null="true" />
+        </property>
+		<set name="roles" table="USERS_ROLES" inverse="false" access="field" lazy="true">
+			<key>
+				<column name="USER_ID" not-null="true" />
+			</key>
+			<many-to-many class="it.univaq.mwt.fastmarket.business.model.Role" column="ROLE_ID" />
+		</set>
+	</class>
+</hibernate-mapping>

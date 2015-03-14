@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class abstract="true" name="it.univaq.mwt.fastmarket.business.model.Order" table="ORDERS">
+        <id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_ORDERS</param>
+			</generator>
+		</id>
+        <property access="field" lazy="false" name="creationDate" type="date">
+            <column name="CREATIONDATE" not-null="true" />
+        </property>
+        <property access="field" lazy="false" name="totalPrice" type="float">
+            <column name="TOTALPRICE" not-null="true" />
+        </property>
+		<many-to-one name="cart" class="it.univaq.mwt.fastmarket.business.model.Cart" access="field" fetch="join">
+		 <column name="CART_ID" not-null="true" />
+		</many-to-one>
+		<joined-subclass name="it.univaq.mwt.fastmarket.business.model.Booking"
+			extends="it.univaq.mwt.fastmarket.business.model.Order" table="BOOKINGS">
+			<key>
+				<column name="ID" not-null="true" />
+			</key>
+			<property access="field" lazy="false" name="expirationDate" type="date">
+				<column name="EXPIRATIONDATE" not-null="true" />
+			</property>
+		</joined-subclass>
+		<joined-subclass name="it.univaq.mwt.fastmarket.business.model.Delivery"
+			extends="it.univaq.mwt.fastmarket.business.model.Order" table="DELIVERIES">
+			<key>
+				<column name="ID" not-null="true" />
+			</key>
+			<property access="field" lazy="false" name="dispatchDate" type="date">
+				<column name="DISPATCHDATE" not-null="true" />
+			</property>
+			<property access="field" lazy="false" name="deliveryCosts" type="float">
+				<column name="DELIVERYCOSTS" not-null="true" />
+			</property>
+			<property access="field" lazy="false" name="deliveryType" type="java.lang.String">
+				<column name="DELIVERYTYPE" />
+			</property>
+		</joined-subclass>
+    </class>
+</hibernate-mapping>

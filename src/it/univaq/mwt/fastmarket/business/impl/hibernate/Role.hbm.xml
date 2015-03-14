@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="it.univaq.mwt.fastmarket.business.model.Role" table="ROLES">
+        <id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_ROLES</param>
+			</generator>
+		</id>
+        <property access="field" lazy="false" name="name" type="java.lang.String">
+            <column name="NAME" not-null="true" unique="true" />
+        </property>
+        <property access="field" lazy="false" name="description" type="text">
+            <column name="DESCRIPTION" />
+        </property>
+        <set name="users" table="USERS_ROLES" cascade="save-update" inverse="true" access="field" lazy="true">
+            <key>
+                <column name="ROLE_ID" />
+            </key>
+            <many-to-many class="it.univaq.mwt.fastmarket.business.model.User" column="USER_ID" />
+        </set>
+    </class>
+</hibernate-mapping>

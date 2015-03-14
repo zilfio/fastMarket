@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="it.univaq.mwt.fastmarket.business.model.CartLine" table="CARTLINES">
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_CARTLINES</param>
+			</generator>
+		</id>
+		<property access="field" lazy="false" name="quantity" type="int">
+			<column name="QUANTITY" not-null="true" />
+		</property>
+		<many-to-one name="cart" class="it.univaq.mwt.fastmarket.business.model.Cart" access="field" fetch="join">
+			<column name="CART_ID" not-null="true" />
+		</many-to-one>
+		<many-to-one name="product" class="it.univaq.mwt.fastmarket.business.model.Product" access="field" fetch="join">
+			<column name="PRODUCT_ID" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

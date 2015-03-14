@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="it.univaq.mwt.fastmarket.business.model.SystemInformation" table="SYSTEMINFORMATION">
+        <id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_SYSTEMINFORMATIONS</param>
+			</generator>
+		</id>
+        <property access="field" lazy="false" name="name" type="java.lang.String">
+            <column name="NAME" not-null="true" />
+        </property>
+        <property access="field" lazy="false" name="description" type="java.lang.String">
+            <column name="DESCRIPTION" not-null="true" />
+        </property>
+        <property access="field" lazy="false" name="creationDate" type="date">
+            <column name="CREATIONDATE" not-null="true" />
+        </property>
+        <many-to-one name="user" class="it.univaq.mwt.fastmarket.business.model.User" access="field" fetch="join">
+		 <column name="USER_ID" not-null="true" />
+		</many-to-one>
+    </class>
+</hibernate-mapping>

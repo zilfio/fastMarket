@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+  <property name="hibernate.show_sql">false</property>
+  <property name="hibernate.format_sql">true</property>
+  <property name="hibernate.hbm2ddl.auto">validate</property>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Role.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/User.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Brand.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/IntoleranceCategory.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Category.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Product.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/CartLine.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Cart.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/SystemInformation.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Region.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Province.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/District.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Address.hbm.xml"/>
+  <mapping resource="it/univaq/mwt/fastmarket/business/impl/hibernate/Order.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

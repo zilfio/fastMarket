@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="it.univaq.mwt.fastmarket.business.model.Province" table="PROVINCES">
+        <id name="id" type="long">
+			<column name="ID" />
+			<generator class="sequence">
+				<param name="sequence">SEQUENCE_PROVINCES</param>
+			</generator>
+		</id>
+        <property access="field" lazy="false" name="name" type="java.lang.String">
+            <column name="NAME" not-null="true" unique="true" />
+        </property>
+        <property access="field" lazy="false" name="abbreviation" type="java.lang.String">
+            <column name="ABBREVIATION" not-null="true" />
+        </property>
+        <many-to-one name="region" class="it.univaq.mwt.fastmarket.business.model.Region" access="field" fetch="join">
+         <column name="REGION_ID" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

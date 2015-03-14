@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+<tiles-definitions>
+
+<!-- frontend layout definitions -->
+
+	<definition name="frontend" template="/WEB-INF/views/frontend_layout/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/frontend_layout/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/frontend_layout/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/frontend_layout/footer.jsp"/>
+    </definition>
+    
+    <definition name="frontend-page" template="/WEB-INF/views/frontend_layout/layout-page.jsp">
+        <put-attribute name="menu" value="/WEB-INF/views/frontend_layout/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/frontend_layout/footer.jsp"/>
+    </definition>
+    
+<!-- frontend pages definitions -->
+    
+    <definition name="frontend.index" extends="frontend">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/index.jsp"/>
+    </definition>
+    
+    <definition name="frontend.about" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/about.jsp"/>
+    </definition>
+    
+    <definition name="frontend.catalogue-products" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/catalogue-products.jsp"/>
+    </definition>
+    
+    <definition name="frontend.detail-products" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/detail-products.jsp"/>
+    </definition>
+    
+    <definition name="frontend.contact" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/contact.jsp"/>
+    </definition>
+
+	<definition name="frontend.login" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/login.jsp"/>
+    </definition>
+
+	<definition name="frontend.signin" extends="frontend-page">
+		<put-attribute name="action" value="/signin"/>
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/signin.jsp"/>
+	</definition>
+
+	<definition name="frontend.ok" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/ok.jsp"/>
+    </definition>
+    
+    <definition name="frontend.error" extends="frontend-page">
+        <put-attribute name="body" value="/WEB-INF/views/frontend_common/error.jsp"/>
+    </definition>
+
+<!-- backend layout definitions -->
+
+	<definition name="standard" template="/WEB-INF/views/backend_layout/layout.jsp">
+        <put-attribute name="menu" value="/WEB-INF/views/backend_layout/menu.jsp"/>
+    </definition>
+    
+<!-- backend pages definitions -->
+    
+    <definition name="common.index" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/backend_common/index.jsp"/>
+    </definition>
+
+    <definition name="common.ok" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/backend_common/ok.jsp"/>
+    </definition>
+    
+    <definition name="common.error" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/backend_common/error.jsp"/>
+    </definition>
+    
+<!-- brands' definitions -->
+
+	<definition name="brands.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/brands/views.jsp"/>
+    </definition>
+    
+    <definition name="brands.createform" extends="standard">
+    	<put-attribute name="action" value="/brands/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/brands/form.jsp"/>
+    </definition>
+    
+    <definition name="brands.updateform" extends="standard">
+        <put-attribute name="action" value="/brands/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/brands/form.jsp"/>
+    </definition>
+    
+    <definition name="brands.deleteform" extends="standard">
+        <put-attribute name="action" value="/brands/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/brands/form.jsp"/>
+    </definition>
+    
+<!-- intolerance categories' definitions -->
+    
+    <definition name="intoleranceCategories.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/intoleranceCategories/views.jsp"/>
+    </definition>
+    
+    <definition name="intoleranceCategories.createform" extends="standard">
+    	<put-attribute name="action" value="/intolerance-categories/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/intoleranceCategories/form.jsp"/>
+    </definition>
+    
+    <definition name="intoleranceCategories.updateform" extends="standard">
+        <put-attribute name="action" value="/intolerance-categories/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/intoleranceCategories/form.jsp"/>
+    </definition>
+    
+    <definition name="intoleranceCategories.deleteform" extends="standard">
+        <put-attribute name="action" value="/intolerance-categories/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/intoleranceCategories/form.jsp"/>
+    </definition>
+    
+<!-- categories' definitions -->
+
+	<definition name="categories.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/categories/views.jsp"/>
+    </definition>
+    
+    <definition name="categories.createform" extends="standard">
+    	<put-attribute name="action" value="/categories/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/categories/form.jsp"/>
+    </definition>
+    
+    <definition name="categories.updateform" extends="standard">
+        <put-attribute name="action" value="/categories/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/categories/form.jsp"/>
+    </definition>
+    
+    <definition name="categories.deleteform" extends="standard">
+        <put-attribute name="action" value="/categories/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/categories/form.jsp"/>
+    </definition>
+
+<!-- non groceries' definitions -->
+
+	<definition name="nonGroceries.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/nonGroceries/views.jsp"/>
+    </definition>
+    
+    <definition name="nonGroceries.createform" extends="standard">
+    	<put-attribute name="action" value="/non-groceries/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/nonGroceries/form.jsp"/>
+    </definition>
+    
+    <definition name="nonGroceries.updateform" extends="standard">
+        <put-attribute name="action" value="/non-groceries/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/nonGroceries/form.jsp"/>
+    </definition>
+    
+    <definition name="nonGroceries.deleteform" extends="standard">
+        <put-attribute name="action" value="/non-groceries/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/nonGroceries/form.jsp"/>
+    </definition>
+    
+<!-- groceries' definitions -->
+
+	<definition name="groceries.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/groceries/views.jsp"/>
+    </definition>
+    
+    <definition name="groceries.createform" extends="standard">
+    	<put-attribute name="action" value="/groceries/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/groceries/form.jsp"/>
+    </definition>
+    
+    <definition name="groceries.updateform" extends="standard">
+        <put-attribute name="action" value="/groceries/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/groceries/form.jsp"/>
+    </definition>
+    
+    <definition name="groceries.deleteform" extends="standard">
+        <put-attribute name="action" value="/groceries/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/groceries/form.jsp"/>
+    </definition>
+    
+<!-- cart lines' definitions -->
+
+	<definition name="cartLines.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/cartLines/views.jsp"/>
+    </definition>
+    
+    <definition name="cartLines.createform" extends="standard">
+    	<put-attribute name="action" value="/cart-lines/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/cartLines/form.jsp"/>
+    </definition>
+    
+    <definition name="cartLines.updateform" extends="standard">
+        <put-attribute name="action" value="/cart-lines/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/cartLines/form.jsp"/>
+    </definition>
+    
+    <definition name="cartLines.deleteform" extends="standard">
+        <put-attribute name="action" value="/cart-lines/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/cartLines/form.jsp"/>
+    </definition>
+    
+<!-- carts' definitions -->
+
+	<definition name="carts.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/carts/views.jsp"/>
+    </definition>
+    
+    <definition name="carts.createform" extends="standard">
+    	<put-attribute name="action" value="/carts/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/carts/form.jsp"/>
+    </definition>
+    
+    <definition name="carts.updateform" extends="standard">
+        <put-attribute name="action" value="/carts/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/carts/form.jsp"/>
+    </definition>
+    
+    <definition name="carts.deleteform" extends="standard">
+        <put-attribute name="action" value="/carts/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/carts/form.jsp"/>
+    </definition>
+    
+<!-- roles' definitions -->
+
+	<definition name="roles.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/roles/views.jsp"/>
+    </definition>
+    
+    <definition name="roles.createform" extends="standard">
+    	<put-attribute name="action" value="/roles/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/roles/form.jsp"/>
+    </definition>
+    
+    <definition name="roles.updateform" extends="standard">
+        <put-attribute name="action" value="/roles/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/roles/form.jsp"/>
+    </definition>
+    
+    <definition name="roles.deleteform" extends="standard">
+        <put-attribute name="action" value="/roles/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/roles/form.jsp"/>
+    </definition>
+    
+<!-- users' definitions -->
+
+	<definition name="users.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/users/views.jsp"/>
+    </definition>
+    
+    <definition name="users.createform" extends="standard">
+    	<put-attribute name="action" value="/users/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/users/form.jsp"/>
+    </definition>
+    
+    <definition name="users.updateform" extends="standard">
+        <put-attribute name="action" value="/users/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/users/form.jsp"/>
+    </definition>
+    
+    <definition name="users.deleteform" extends="standard">
+        <put-attribute name="action" value="/users/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/users/form.jsp"/>
+    </definition>
+
+<!-- user profile definition -->
+
+	<definition name="userProfile.update" extends="standard">
+		<put-attribute name="action" value="/userProfile/update"/>
+        <put-attribute name="body" value="/WEB-INF/views/userProfile/profile_update.jsp"/>
+    </definition>
+
+<!-- regions' definitions -->
+
+	<definition name="regions.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/regions/views.jsp"/>
+    </definition>
+    
+    <definition name="regions.createform" extends="standard">
+    	<put-attribute name="action" value="/regions/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/regions/form.jsp"/>
+    </definition>
+    
+    <definition name="regions.updateform" extends="standard">
+        <put-attribute name="action" value="/regions/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/regions/form.jsp"/>
+    </definition>
+    
+    <definition name="regions.deleteform" extends="standard">
+        <put-attribute name="action" value="/regions/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/regions/form.jsp"/>
+    </definition>
+    
+<!-- provinces' definitions -->
+
+	<definition name="provinces.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/provinces/views.jsp"/>
+    </definition>
+    
+    <definition name="provinces.createform" extends="standard">
+    	<put-attribute name="action" value="/provinces/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/provinces/form.jsp"/>
+    </definition>
+    
+    <definition name="provinces.updateform" extends="standard">
+        <put-attribute name="action" value="/provinces/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/provinces/form.jsp"/>
+    </definition>
+    
+    <definition name="provinces.deleteform" extends="standard">
+        <put-attribute name="action" value="/provinces/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/provinces/form.jsp"/>
+    </definition>
+
+<!-- districts' definitions -->
+
+	<definition name="districts.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/districts/views.jsp"/>
+    </definition>
+    
+    <definition name="districts.createform" extends="standard">
+    	<put-attribute name="action" value="/districts/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/districts/form.jsp"/>
+    </definition>
+    
+    <definition name="districts.updateform" extends="standard">
+        <put-attribute name="action" value="/districts/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/districts/form.jsp"/>
+    </definition>
+    
+    <definition name="districts.deleteform" extends="standard">
+        <put-attribute name="action" value="/districts/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/districts/form.jsp"/>
+    </definition>
+    
+<!-- addresses' definitions -->
+
+	<definition name="addresses.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/addresses/views.jsp"/>
+    </definition>
+    
+    <definition name="addresses.createform" extends="standard">
+    	<put-attribute name="action" value="/addresses/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/addresses/form.jsp"/>
+    </definition>
+    
+    <definition name="addresses.updateform" extends="standard">
+        <put-attribute name="action" value="/addresses/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/addresses/form.jsp"/>
+    </definition>
+    
+    <definition name="addresses.deleteform" extends="standard">
+        <put-attribute name="action" value="/addresses/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/addresses/form.jsp"/>
+    </definition>
+
+<!-- system informations' definitions -->
+
+	<definition name="systemInformations.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/systemInformations/views.jsp"/>
+    </definition>
+    
+    <definition name="systemInformations.createform" extends="standard">
+    	<put-attribute name="action" value="/systemInformations/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/systemInformations/form.jsp"/>
+    </definition>
+    
+    <definition name="systemInformations.updateform" extends="standard">
+        <put-attribute name="action" value="/systemInformations/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/systemInformations/form.jsp"/>
+    </definition>
+    
+    <definition name="systemInformations.deleteform" extends="standard">
+        <put-attribute name="action" value="/systemInformations/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/systemInformations/form.jsp"/>
+    </definition>
+    
+<!-- bookings' definitions -->
+
+	<definition name="bookings.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/bookings/views.jsp"/>
+    </definition>
+    
+    <definition name="bookings.createform" extends="standard">
+    	<put-attribute name="action" value="/bookings/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/bookings/form.jsp"/>
+    </definition>
+    
+    <definition name="bookings.updateform" extends="standard">
+        <put-attribute name="action" value="/bookings/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/bookings/form.jsp"/>
+    </definition>
+    
+    <definition name="bookings.deleteform" extends="standard">
+        <put-attribute name="action" value="/bookings/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/bookings/form.jsp"/>
+    </definition>
+
+<!-- deliveries' definitions -->
+
+	<definition name="deliveries.views" extends="standard">
+        <put-attribute name="body" value="/WEB-INF/views/deliveries/views.jsp"/>
+    </definition>
+    
+    <definition name="deliveries.createform" extends="standard">
+    	<put-attribute name="action" value="/deliveries/create"/>
+    	<put-attribute name="create" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/deliveries/form.jsp"/>
+    </definition>
+    
+    <definition name="deliveries.updateform" extends="standard">
+        <put-attribute name="action" value="/deliveries/update"/>
+        <put-attribute name="update" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/deliveries/form.jsp"/>
+    </definition>
+    
+    <definition name="deliveries.deleteform" extends="standard">
+        <put-attribute name="action" value="/deliveries/delete"/>
+        <put-attribute name="delete" value="true"/>
+        <put-attribute name="body" value="/WEB-INF/views/deliveries/form.jsp"/>
+    </definition>
+
+</tiles-definitions>

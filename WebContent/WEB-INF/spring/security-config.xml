@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    	http://www.springframework.org/schema/security 
+    	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<security:global-method-security pre-post-annotations="enabled" />
+
+	<security:http auto-config='true' use-expressions="true">
+		<security:access-denied-handler error-page="/WEB-INF/views/backend_common/accessdenied.jsp" />
+		<security:intercept-url pattern="/resources/**" access="permitAll" />
+		<security:intercept-url pattern="/" access="permitAll" />
+		
+		<security:intercept-url pattern="/backend_layout/**" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/dashboard" access="isAuthenticated()" />
+		<security:intercept-url pattern="/userProfile/**" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/non-groceries/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/groceries/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/brands/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/categories/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/intolerance-categories/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/carts/**" access="hasRole('SiteAdmin')"/>
+		<security:intercept-url pattern="/cart-lines/**" access="hasRole('SiteAdmin')"/>
+		<security:intercept-url pattern="/deliveries/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/bookings/**" access="hasAnyRole('SiteAdmin', 'SalesManager')"/>
+		<security:intercept-url pattern="/districts/**" access="hasRole('SiteAdmin')"/>
+		<security:intercept-url pattern="/provinces/**" access="hasRole('SiteAdmin')"/>
+		<security:intercept-url pattern="/regions/**" access="hasRole('SiteAdmin')"/>
+		<security:intercept-url pattern="/addresses/**" access="hasRole('SiteAdmin')"/>
+		<security:intercept-url pattern="/systemInformations/**" access="hasAnyRole('SiteAdmin', 'WebMarketingManager')"/>
+ 		
+		<security:form-login login-page="/login" 
+							 authentication-failure-url="/login" 
+							 default-target-url="/dashboard"
+							 always-use-default-target="false"/>
+
+	</security:http>
+
+    <security:authentication-manager>
+		<security:authentication-provider user-service-ref="myUserDetailsService">
+			<security:password-encoder hash="md5" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<bean id="myUserDetailsService" class="it.univaq.mwt.fastmarket.common.spring.UserDetailsServiceImpl"/>
+	
+</beans>
